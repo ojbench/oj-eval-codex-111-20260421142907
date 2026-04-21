@@ -1,13 +1,11 @@
-// Header-only implementation of C strtok
+// Header-only implementation of C strtok in namespace sjtu
 // No standard library and no globals; uses function-static state.
 
 #ifndef __restrict
 #define __restrict
 #endif
 
-extern "C" {
-char *strtok(char * __restrict str, const char * __restrict delim);
-}
+namespace sjtu {
 
 static int __oj_is_delim(char c, const char *delim) {
     // Returns 1 if c is in delim, else 0
@@ -19,7 +17,7 @@ static int __oj_is_delim(char c, const char *delim) {
     return 0;
 }
 
-extern "C" char *strtok(char * __restrict str, const char * __restrict delim) {
+char *strtok(char * __restrict str, const char * __restrict delim) {
     static char *last = (char*)0;
 
     char *s = str ? str : last;
@@ -46,3 +44,4 @@ extern "C" char *strtok(char * __restrict str, const char * __restrict delim) {
     return token;
 }
 
+} // namespace sjtu
