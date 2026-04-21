@@ -1,7 +1,9 @@
 #include <bits/stdc++.h>
-#include "src.hpp"
 using namespace std;
-namespace sjtu { char *strtok(char * __restrict str, const char * __restrict delim); }
+
+namespace sjtu {
+#include "src.hpp"
+}
 int main(){
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
